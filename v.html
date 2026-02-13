@@ -3,14 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Be My Valentine? 💖</title>
+<title>Be My Valentine 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Quicksand&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #fcefee, #f8d7da, #f6c1d7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,55 +22,65 @@ body {
 }
 
 .container {
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-    animation: fadeIn 1.5s ease-in-out;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    padding: 45px;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    max-width: 420px;
+    position: relative;
+    animation: float 4s ease-in-out infinite;
 }
 
 h1 {
-    color: #ff4b5c;
-    font-size: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    color: #a85c7a;
+    font-size: 2.3rem;
 }
 
 p {
-    font-size: 1.2rem;
-    color: #444;
+    color: #7b5d67;
+    font-size: 1.1rem;
+}
+
+img {
+    width: 240px;
+    margin: 25px 0;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 button {
-    padding: 12px 25px;
+    padding: 12px 28px;
     font-size: 1rem;
     border: none;
-    border-radius: 25px;
+    border-radius: 30px;
     cursor: pointer;
-    margin: 10px;
+    margin: 12px;
     transition: 0.3s;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .yes {
-    background-color: #ff4b5c;
+    background-color: #e88cae;
     color: white;
 }
 
 .yes:hover {
-    background-color: #ff1f3d;
+    background-color: #d96b93;
     transform: scale(1.1);
 }
 
 .no {
-    background-color: #ccc;
-}
-
-.no:hover {
+    background-color: #e3d5dc;
     position: absolute;
-    top: calc(10% + 80% * random());
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+/* floating animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
 }
 </style>
 </head>
@@ -76,28 +88,37 @@ button {
 <body>
 
 <div class="container">
-    <h1>Hey My Love 💖</h1>
-    <p>You make my world brighter every single day.</p>
-    <p>Will you be my Valentine? 🌹</p>
+    <h1>Dear Preettuu 💕</h1>
+    <p>Like these little penguins…</p>
+    <p>I want to hold your hand forever.</p>
+
+    <img src="penguin.png" alt="Watercolor Penguins">
+
+    <p>Will you be my Valentine? 💖</p>
 
     <button class="yes" onclick="yesClicked()">YES 💘</button>
-    <button class="no" onclick="moveButton()">No 🙈</button>
+    <button class="no" onmouseover="moveButton()">No 🙈</button>
 </div>
 
 <script>
 function yesClicked() {
     document.body.innerHTML = `
-        <div style="display:flex; justify-content:center; align-items:center; height:100vh; background:linear-gradient(135deg,#ff9a9e,#fad0c4);">
-            <h1 style="color:white; font-size:3rem;">YAYYYY 💕 I love you so much!!!</h1>
+        <div style="display:flex; justify-content:center; align-items:center; height:100vh; background:linear-gradient(135deg,#fcefee,#f8d7da,#f6c1d7); text-align:center;">
+            <h1 style="font-family:'Playfair Display',serif; color:#ffffff; font-size:2.8rem;">
+                You just made me the happiest girl 🥹💖<br><br>
+                I love you so much Peettuuu ✨
+            </h1>
         </div>
     `;
 }
 
 function moveButton() {
     const button = document.querySelector('.no');
-    button.style.position = "absolute";
-    button.style.top = Math.random() * window.innerHeight + "px";
-    button.style.left = Math.random() * window.innerWidth + "px";
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 80);
+
+    button.style.left = x + "px";
+    button.style.top = y + "px";
 }
 </script>
 
