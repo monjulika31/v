@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine? 💖</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+h1 {
+    color: #ff4b5c;
+    font-size: 2.5rem;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #444;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+.yes {
+    background-color: #ff4b5c;
+    color: white;
+}
+
+.yes:hover {
+    background-color: #ff1f3d;
+    transform: scale(1.1);
+}
+
+.no {
+    background-color: #ccc;
+}
+
+.no:hover {
+    position: absolute;
+    top: calc(10% + 80% * random());
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Hey My Love 💖</h1>
+    <p>You make my world brighter every single day.</p>
+    <p>Will you be my Valentine? 🌹</p>
+
+    <button class="yes" onclick="yesClicked()">YES 💘</button>
+    <button class="no" onclick="moveButton()">No 🙈</button>
+</div>
+
+<script>
+function yesClicked() {
+    document.body.innerHTML = `
+        <div style="display:flex; justify-content:center; align-items:center; height:100vh; background:linear-gradient(135deg,#ff9a9e,#fad0c4);">
+            <h1 style="color:white; font-size:3rem;">YAYYYY 💕 I love you so much!!!</h1>
+        </div>
+    `;
+}
+
+function moveButton() {
+    const button = document.querySelector('.no');
+    button.style.position = "absolute";
+    button.style.top = Math.random() * window.innerHeight + "px";
+    button.style.left = Math.random() * window.innerWidth + "px";
+}
+</script>
+
+</body>
+</html>
